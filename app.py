@@ -4,7 +4,7 @@ from keep_alive import *
 app = Flask(__name__)
 
 # Parámetros de configuración iniciales
-config = {"LS": "4", "LI": "1", "alias": "sas", "status": "on"}
+config = {"LS": "4", "LI": "1", "alias": "Xiaomis", "status": "on"}
 
 
 @app.route("/")
