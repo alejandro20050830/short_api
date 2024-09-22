@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración</title>
+</head>
+<body>
+    <h1>Configuración</h1>
+    <form action="/update" method="POST">
+        <label for="LS">LS:</label>
+        <input type="text" id="LS" name="LS" value="{{ config.LS }}"><br><br>
+        
+        <label for="LI">LI:</label>
+        <input type="text" id="LI" name="LI" value="{{ config.LI }}"><br><br>
+        
+        <label for="alias">Alias:</label>
+        <input type="text" id="alias" name="alias" value="{{ config.alias }}"><br><br>
+        
+        <label for="status">Status:</label>
+        <input type="text" id="status" name="status" value="{{ config.status }}"><br><br>
+        
+        <input type="submit" value="Actualizar">
+    </form>
+</body>
+</html>
