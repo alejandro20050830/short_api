@@ -19,7 +19,7 @@ def update_config():
     config["LI"] = request.form.get("LI")
     config["alias"] = request.form.get("alias")
     config["status"] = request.form.get("status")
-     config["redirect_dev_url"] = request.form.get("redirect_dev_url")
+    config["redirect_dev_url"] = request.form.get("redirect_dev_url")
     
     return "Configuración actualizada", 200
 
