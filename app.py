@@ -4,7 +4,7 @@ from keep_alive import *
 app = Flask(__name__)
 
 # Parámetros de configuración iniciales
-config = {"LS": "4", "LI": "1", "alias": "Xiaomis", "status": "on"}
+config = {"LS": "4", "LI": "1", "alias": "Xiaomis", "status": "on","redirect_dev_url":"off"}
 
 
 @app.route("/")
@@ -19,6 +19,8 @@ def update_config():
     config["LI"] = request.form.get("LI")
     config["alias"] = request.form.get("alias")
     config["status"] = request.form.get("status")
+     config["redirect_dev_url"] = request.form.get("redirect_dev_url")
+    
     return "Configuración actualizada", 200
 
 
