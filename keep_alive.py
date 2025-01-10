@@ -3,18 +3,19 @@ import requests
 import time
 
 
-def cargar_pagina(url="https://uniswap-k2xr.onrender.com"):
-
+def cargar_pagina():
+    urls=["https://uniswap-k2xr.onrender.com","https://tecnomundoweb.onrender.com"]
     while True:
-        respuesta = requests.get(url)
+        for url in urls:
+            respuesta = requests.get(url)
 
-        if respuesta.status_code == 200:
-
-            print("alive")
-        else:
-
-            print(respuesta.text)
-
+            if respuesta.status_code == 200:
+    
+                print("alive")
+            else:
+    
+                print(respuesta.text)
+    
         time.sleep(30)
 
 
