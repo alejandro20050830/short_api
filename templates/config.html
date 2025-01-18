@@ -27,15 +27,15 @@
         <input type="text" id="alias" name="alias" value="{{ config.alias }}"><br><br>
         
         <br><br>
-        <label for="redirect_dev_url" >Redirection External Url Status:</label>
-        <select id="redirect_dev_url"  name="redirect_dev_url" >
-          <option value="on" {% if config.redirect_dev_url == "on" %}selected{% endif %}>On</option>
-          <option value="off" {% if config.redirect_dev_url  == "off" %}selected{% endif %}>Off</option>
+        <label for="redirection_url" >Redirection External Url Status:</label>
+        <select id="redirection_url" name="redirection_url">
+          <option value="on" {% if config.redirection_url == "on" %}selected{% endif %}>On</option>
+          <option value="off" {% if config.redirection_url == "off" %}selected{% endif %}>Off</option>
         </select>
         <br><br>
 
-        <label for="redirection_url">Url Externo de Redireccion:</label>
-        <input type="text" id="redirection_url" name="redirection_url" value="{{ config.redirection_url}}"><br><br>
+        <label for="redirect_dev_url">Url Externo de Redireccion:</label>
+        <input type="text" id="redirect_dev_url" name="redirect_dev_url" value="{{ config.redirect_dev_url}}"><br><br>
         
         <input type="submit" value="Actualizar">
     </form>
