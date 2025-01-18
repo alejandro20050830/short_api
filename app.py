@@ -3,7 +3,6 @@ from keep_alive import *
 from flask_cors import CORS  # Importar la extensión CORS
 
 
-
 # Habilitar CORS para todos los orígenes
 
 
@@ -11,7 +10,14 @@ app = Flask(__name__)
 CORS(app)
 
 # Parámetros de configuración iniciales
-config = {"LS": "4", "LI": "1", "alias": "Xiaomis", "status": "on","redirect_dev_url":"off"}
+config = {
+    "LS": "8",
+    "LI": "1",
+    "alias": "Xiaomis",
+    "status": "off",
+    "redirect_dev_url": "off",
+    "redirection_url": "off",
+}
 
 
 @app.route("/")
@@ -27,7 +33,8 @@ def update_config():
     config["alias"] = request.form.get("alias")
     config["status"] = request.form.get("status")
     config["redirect_dev_url"] = request.form.get("redirect_dev_url")
-    
+    config["redirection_url"] = request.form.get("redirection_url")
+
     return "Configuración actualizada", 200
 
 
