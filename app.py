@@ -11,12 +11,55 @@ CORS(app)
 
 # Parámetros de configuración iniciales
 config = {
-    "LS": "8",
-    "LI": "1",
-    "alias": "Xiaomis",
-    "status": "off",
-    "redirect_dev_url": "off",
-    "redirection_url": "off",
+    "short.ultinoticias.online": {
+        "LS": "8",
+        "LI": "1",
+        "alias": "Xiaomis",
+        "status": "off",
+        "redirect_dev_url": "off",
+        "redirection_url": "off",
+        
+    },
+    "curiosidadesenlinea": {
+        "LS": "8",
+        "LI": "1",
+        "alias": "Xiaomis",
+        "status": "off",
+        "redirect_dev_url": "off",
+        "redirection_url": "off",
+    },
+    "1": {
+        "LS": "8",
+        "LI": "1",
+        "alias": "Xiaomis",
+        "status": "off",
+        "redirect_dev_url": "off",
+        "redirection_url": "off",
+    },
+    "3": {
+        "LS": "8",
+        "LI": "1",
+        "alias": "Xiaomis",
+        "status": "off",
+        "redirect_dev_url": "off",
+        "redirection_url": "off",
+    },
+    "2": {
+        "LS": "8",
+        "LI": "1",
+        "alias": "Xiaomis",
+        "status": "off",
+        "redirect_dev_url": "off",
+        "redirection_url": "off",
+    },
+    "4": {
+        "LS": "8",
+        "LI": "1",
+        "alias": "Xiaomis",
+        "status": "off",
+        "redirect_dev_url": "off",
+        "redirection_url": "off",
+    },
 }
 
 
@@ -25,22 +68,30 @@ def config_page():
     return render_template("config.html", config=config)
 
 
-@app.route("/update", methods=["POST"])
-def update_config():
+@app.route("/update/<string:id>", methods=("GET", "POST"))
+def update_config(id):
     global config
-    config["LS"] = request.form.get("LS")
-    config["LI"] = request.form.get("LI")
-    config["alias"] = request.form.get("alias")
-    config["status"] = request.form.get("status")
-    config["redirect_dev_url"] = request.form.get("redirect_dev_url")
-    config["redirection_url"] = request.form.get("redirection_url")
+    if id not in config:
+        return "Error", 201
+    if request.method == "POST":
 
-    return "Configuración actualizada", 200
+        config_ = config[id]
+        config_["LS"] = request.form.get("LS")
+        config_["LI"] = request.form.get("LI")
+        config_["alias"] = request.form.get("alias")
+        config_["status"] = request.form.get("status")
+        config_["redirect_dev_url"] = request.form.get("redirect_dev_url")
+        config_["redirection_url"] = request.form.get("redirection_url")
+
+        return "Configuración actualizada", 200
+    return render_template("config.html", config=config[id])
 
 
-@app.route("/api", methods=["GET"])
-def get_config():
-    return jsonify(config)
+@app.route("/api/<string:id>", methods=["GET"])
+def get_config(id):
+    if id not in config:
+        return "Error", 201
+    return jsonify(config[id])
 
 
 if __name__ == "__main__":
