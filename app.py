@@ -18,7 +18,8 @@ config = {
         "status": "off",
         "redirect_dev_url": "off",
         "redirection_url": "off",
-        
+        "Country": "",
+        "CountryFilter": "off",
     },
     "curiosidadesenlinea": {
         "LS": "8",
@@ -27,6 +28,8 @@ config = {
         "status": "off",
         "redirect_dev_url": "off",
         "redirection_url": "off",
+        "Country": "",
+        "CountryFilter": "off",
     },
     "1": {
         "LS": "8",
@@ -35,6 +38,8 @@ config = {
         "status": "off",
         "redirect_dev_url": "off",
         "redirection_url": "off",
+        "Country": "",
+        "CountryFilter": "off",
     },
     "3": {
         "LS": "8",
@@ -43,6 +48,8 @@ config = {
         "status": "off",
         "redirect_dev_url": "off",
         "redirection_url": "off",
+        "Country": "",
+        "CountryFilter": "off",
     },
     "2": {
         "LS": "8",
@@ -51,6 +58,8 @@ config = {
         "status": "off",
         "redirect_dev_url": "off",
         "redirection_url": "off",
+        "Country": "",
+        "CountryFilter": "off",
     },
     "4": {
         "LS": "8",
@@ -59,6 +68,8 @@ config = {
         "status": "off",
         "redirect_dev_url": "off",
         "redirection_url": "off",
+        "Country": "",
+        "CountryFilter": "off",
     },
 }
 
@@ -82,6 +93,8 @@ def update_config(id):
         config_["status"] = request.form.get("status")
         config_["redirect_dev_url"] = request.form.get("redirect_dev_url")
         config_["redirection_url"] = request.form.get("redirection_url")
+        config_["Country"] = request.form.get("Country")
+        config_["CountryFilter"] = request.form.get("CountryFilter")
 
         return "Configuración actualizada", 200
     return render_template("config.html", config=config[id])
