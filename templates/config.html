@@ -37,6 +37,15 @@
         <label for="redirect_dev_url">Url Externo de Redireccion:</label>
         <input type="text" id="redirect_dev_url" name="redirect_dev_url" value="{{ config.redirect_dev_url}}"><br><br>
         
+        <br><br>
+        <label for="CountryFilter" >Country Filter</label>
+        <select id="CountryFilter" name="CountryFilter">
+          <option value="on" {% if config.CountryFilter == "on" %}selected{% endif %}>On</option>
+          <option value="off" {% if config.CountryFilter == "off" %}selected{% endif %}>Off</option>
+        </select>
+        <br><br>
+          <label for="Country">Country List</label>
+        <input type="text" id="Country" name="Country" value="{{ config.Country}}"><br><br>
         <input type="submit" value="Actualizar">
     </form>
 </body>
